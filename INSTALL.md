@@ -24,6 +24,19 @@ python -m pip install -e .
 ```bash
 mp1-id --help
 mp1-energies --help
+mp1-vasp --help
+```
+
+For `mp1-vasp`, configure POTCAR location with one of:
+
+```bash
+export VASP_POTCAR_DIR="/path/to/POTCARS"
+```
+
+or
+
+```bash
+mp1-vasp --generate-potcar --workdir /path/to/calc --potcar-dir /path/to/POTCARS
 ```
 
 ## Updating

@@ -18,6 +18,7 @@ dependencies = [
 [project.scripts]
 mp1-id = "mp1_tools.id:main"
 mp1-energies = "mp1_tools.energies:main"
+mp1-vasp = "mp1_tools.vasp:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
