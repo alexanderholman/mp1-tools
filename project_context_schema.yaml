@@ -1,0 +1,63 @@
+<!-- filename: project_context_schema.yaml -->
+
+# Defines the standard schema for per-project context files.
+# Expected filenames:
+# - project_context_<project>.yaml
+# - project_context_<project>.yml
+
+schema_version: "1.0"
+schema_name: "project_context"
+
+fields:
+  project:
+    required: true
+    type: object
+    fields:
+      project_id: { required: true, type: string }
+      title: { required: true, type: string }
+      intent: { required: true, type: string }
+      status: { required: true, type: string, allowed: ["planning", "active", "paused", "done"] }
+
+  constraints:
+    required: false
+    type: object
+    fields:
+      flat_files_only: { required: false, type: boolean, default: true }
+      allowed_languages: { required: false, type: array, item_type: string }
+      forbidden_tools: { required: false, type: array, item_type: string }
+      environments: { required: false, type: array, item_type: string }
+
+  goals:
+    required: false
+    type: array
+    item_type: string
+
+  deliverables:
+    required: false
+    type: array
+    item_type: string
+
+  inputs:
+    required: false
+    type: array
+    item_type: string
+
+  current_state:
+    required: false
+    type: object
+    fields:
+      what_exists: { required: false, type: array, item_type: string }
+      what_is_missing: { required: false, type: array, item_type: string }
+      known_issues: { required: false, type: array, item_type: string }
+
+  workflow:
+    required: false
+    type: object
+    fields:
+      default_agent_pipeline: { required: false, type: array, item_type: string }
+      quality_gates_to_apply: { required: false, type: array, item_type: string }
+
+  notes:
+    required: false
+    type: array
+    item_type: string

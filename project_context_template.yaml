@@ -1,0 +1,44 @@
+# filename: project_context_template.yaml
+
+project:
+  project_id: "template"
+  title: "Template Repository"
+  intent: "Provide a plug-and-play repository structure with AgentFactory-compatible agents and validation."
+  status: "active"
+
+constraints:
+  flat_files_only: false
+  environments:
+    - "GitHub"
+    - "OpenCode"
+  allowed_languages:
+    - "markdown"
+    - "yaml"
+  forbidden_tools: []
+
+goals:
+  - "Include core agents, specialisms, and validation tooling"
+  - "Enable spec -> build -> review workflows from day one"
+
+deliverables:
+  - "agents.yaml"
+  - "agents.md"
+  - "AGENTS.md"
+  - "specs.md"
+  - "decisions.md"
+  - "agent_runs.md"
+  - "validate_agents.sh"
+
+workflow:
+  default_agent_pipeline:
+    - "Architect writes/updates spec"
+    - "Builder produces artifacts"
+    - "Tester validates requirements"
+    - "SecurityReviewer checks security"
+    - "Skeptic reviews edge cases"
+    - "Editor improves clarity"
+    - "ProjectManager packages outputs"
+  quality_gates_to_apply:
+    - "writing"
+    - "code"
+    - "tests"

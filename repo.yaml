@@ -1,0 +1,21 @@
+# filename: repo.yaml
+# Minimal repository manifest for the flat-file Agent Factory system.
+
+repo:
+  name: "agent-factory"
+  hierarchy: "flat"
+  required_files:
+    - "agents.yaml"
+    - "agents.md"
+    - "specs.md"
+  optional_files:
+    - "project_context.md"
+    - "agent_runs.md"
+    - "decisions.md"
+    - "{specialism}.md"
+  logs:
+    run_log: "agent_runs.md"
+    decision_log: "decisions.md"
+  conventions:
+    tags_required: ["[SPEC]", "[ASSUMPTION]", "[RISK]", "[TODO]", "[DECISION]", "[TEST]", "[DONE]"]
+    append_only_files: ["specs.md", "agent_runs.md", "decisions.md"]

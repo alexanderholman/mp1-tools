@@ -1,0 +1,16 @@
+cadence:
+  daily:
+    - id: check-open-prs
+      description: Review open PRs and summarize status.
+    - id: review-triage
+      description: Review triage.md and surface items needing user input.
+
+  weekly:
+    - id: dependency-audit
+      description: Check for outdated dependencies or security alerts.
+    - id: workflow-health
+      description: Verify validation workflows and bots are functioning.
+
+  monthly:
+    - id: template-sync
+      description: Ensure template repo stays aligned with AgentFactory updates.

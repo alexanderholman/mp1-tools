@@ -1,0 +1,133 @@
+# agents.yaml
+# Configuration file for Agent Factory
+# This file defines the structure and metadata for agents in the system
+# All agents MUST be defined here before they can be used
+#
+# IMPORTANT: Before defining agents with file_path, ensure the agents/ directory exists.
+# The validation script will check for this directory and create it if needed.
+
+# Schema version
+schema_version: "1.0.0"
+
+# Agent definitions
+agents:
+  - id: "example-agent-001"
+    name: "Example Documentation Agent"
+    description: "A demonstration agent showing the required structure for agent documentation"
+    version: "1.0.0"
+    tags:
+      - documentation
+      - automation
+      - utility
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/example-documentation-agent.md"
+    status: "active"
+    created_date: "2026-01-28"
+    last_modified: "2026-01-28"
+
+  - id: "tester-001"
+    name: "Tester"
+    description: "Test Creator + Quality Validator - Creates comprehensive test suites, validates test coverage, ensures quality gates are met through systematic testing"
+    version: "1.0.0"
+    tags:
+      - testing
+      - quality
+      - automation
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/Tester.md"
+    status: "active"
+    created_date: "2026-01-29"
+    last_modified: "2026-01-29"
+
+  - id: "security-reviewer-001"
+    name: "SecurityReviewer"
+    description: "Security Analyst + Compliance Auditor - Identifies security vulnerabilities, enforces security best practices, ensures compliance with security standards"
+    version: "1.0.0"
+    tags:
+      - security
+      - analysis
+      - quality
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/SecurityReviewer.md"
+    status: "active"
+    created_date: "2026-01-29"
+    last_modified: "2026-01-29"
+
+  - id: "opencode-manager-001"
+    name: "OpenCodeManager"
+    description: "Orchestration + Session Control - Coordinates OpenCode sessions, enforces AgentFactory rules, and manages role handoffs"
+    version: "1.0.0"
+    tags:
+      - automation
+      - integration
+      - utility
+    required_headings:
+      - "Purpose"
+      - "Inputs"
+      - "Outputs"
+      - "Behavior"
+      - "Constraints"
+    file_path: "agents/opencode/OpenCodeManager.md"
+    status: "active"
+    created_date: "2026-02-05"
+    last_modified: "2026-02-05"
+
+# Validation rules
+validation_rules:
+  # MUST requirements
+  must:
+    - rule: "All agents MUST have a unique ID"
+      test: "check_unique_ids"
+    - rule: "All agents MUST have required headings in their markdown files"
+      test: "check_required_headings"
+    - rule: "All agents MUST have at least one tag"
+      test: "check_tags_present"
+    - rule: "All agent file paths MUST exist"
+      test: "check_file_exists"
+  
+  # SHOULD requirements
+  should:
+    - rule: "Agents SHOULD have descriptive names"
+    - rule: "Agents SHOULD include version information"
+    - rule: "Agents SHOULD be documented with clear examples"
+  
+  # MAY requirements
+  may:
+    - rule: "Agents MAY include additional metadata"
+    - rule: "Agents MAY reference external resources"
+
+# Allowed tags (extensible list)
+allowed_tags:
+  - automation
+  - analysis
+  - testing
+  - documentation
+  - deployment
+  - monitoring
+  - integration
+  - utility
+  - security
+  - quality
+
+# Required headings for agent documentation files
+required_headings:
+  - "Purpose"
+  - "Inputs"
+  - "Outputs"
+  - "Behavior"
+  - "Constraints"

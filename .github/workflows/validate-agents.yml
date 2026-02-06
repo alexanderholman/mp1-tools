@@ -1,0 +1,57 @@
+name: Validate Agent Definitions
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'agents/**'
+      - 'agents.yaml'
+      - 'agents.md'
+      - 'validate_agents.sh'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'agents/**'
+      - 'agents.yaml'
+      - 'agents.md'
+      - 'validate_agents.sh'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate Agent Factory Specifications
+    permissions:
+      contents: read
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Make validation script executable
+      run: chmod +x validate_agents.sh
+      
+    - name: Run Agent Factory Validation
+      run: ./validate_agents.sh
+      
+    - name: Check for required files
+      run: |
+        echo "Checking for required files..."
+        [ -f agents.yaml ] && echo "✓ agents.yaml exists" || (echo "✗ agents.yaml missing" && exit 1)
+        [ -f agents.md ] && echo "✓ agents.md exists" || (echo "✗ agents.md missing" && exit 1)
+        [ -f specs.md ] && echo "✓ specs.md exists" || (echo "✗ specs.md missing" && exit 1)
+        [ -f decisions.md ] && echo "✓ decisions.md exists" || (echo "✗ decisions.md missing" && exit 1)
+        [ -f agent_runs.md ] && echo "✓ agent_runs.md exists" || (echo "✗ agent_runs.md missing" && exit 1)
+        [ -d agents ] && echo "✓ agents/ directory exists" || (echo "✗ agents/ directory missing" && exit 1)
+        
+    - name: Validation Summary
+      if: success()
+      run: |
+        echo "=========================================="
+        echo "✓ All Agent Factory validations passed!"
+        echo "=========================================="
+        echo ""
+        echo "✓ Validation script completed successfully"
+        echo "✓ Required files present"
+        echo ""
+        echo "Repository is ready for deployment."
