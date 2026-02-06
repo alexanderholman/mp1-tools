@@ -20,7 +20,7 @@ def _env_with_src() -> dict[str, str]:
 def test_import_modules() -> None:
     env = _env_with_src()
     result = subprocess.run(
-        [sys.executable, "-c", "import mp1_tools.id, mp1_tools.energies, mp1_tools.vasp"],
+        [sys.executable, "-c", "import mlp_tools.id, mlp_tools.energies, mlp_tools.vasp"],
         cwd=ROOT,
         env=env,
         text=True,
@@ -32,7 +32,7 @@ def test_import_modules() -> None:
 
 def test_mp1_id_help() -> None:
     result = subprocess.run(
-        [sys.executable, "-m", "mp1_tools.id", "--help"],
+        [sys.executable, "-m", "mlp_tools.id", "--help"],
         cwd=ROOT,
         env=_env_with_src(),
         text=True,
@@ -45,7 +45,7 @@ def test_mp1_id_help() -> None:
 
 def test_mp1_energies_help() -> None:
     result = subprocess.run(
-        [sys.executable, "-m", "mp1_tools.energies", "--help"],
+        [sys.executable, "-m", "mlp_tools.energies", "--help"],
         cwd=ROOT,
         env=_env_with_src(),
         text=True,
@@ -58,7 +58,7 @@ def test_mp1_energies_help() -> None:
 
 def test_mp1_vasp_help() -> None:
     result = subprocess.run(
-        [sys.executable, "-m", "mp1_tools.vasp", "--help"],
+        [sys.executable, "-m", "mlp_tools.vasp", "--help"],
         cwd=ROOT,
         env=_env_with_src(),
         text=True,

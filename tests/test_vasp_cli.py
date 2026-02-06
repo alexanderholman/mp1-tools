@@ -34,7 +34,7 @@ def test_generate_potcar_requires_configured_potcar_dir(tmp_path: Path) -> None:
     )
 
     result = subprocess.run(
-        [sys.executable, "-m", "mp1_tools.vasp", "--generate-potcar", "--workdir", str(tmp_path)],
+        [sys.executable, "-m", "mlp_tools.vasp", "--generate-potcar", "--workdir", str(tmp_path)],
         cwd=ROOT,
         env=_env_with_src(),
         text=True,
