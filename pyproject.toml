@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mp1-tools"
+version = "0.1.0"
+description = "CLI tools for MP1 ID utilities and energy analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "ase",
+  "matplotlib",
+  "numpy",
+  "pymatgen",
+]
+
+[project.scripts]
+mp1-id = "mp1_tools.id:main"
+mp1-energies = "mp1_tools.energies:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
