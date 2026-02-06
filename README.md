@@ -24,4 +24,6 @@ mp1-vasp --help
 
 `mp1-vasp` requires a configured POTCAR directory via `--potcar-dir` or `VASP_POTCAR_DIR`.
 
+Current status is tracked in `WIP.md` and `tasks/wip.md`.
+
 See [INSTALL.md](INSTALL.md) for details.
