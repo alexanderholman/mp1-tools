@@ -369,3 +369,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
