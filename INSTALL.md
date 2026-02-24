@@ -25,6 +25,7 @@ python -m pip install -e .
 mp1-id --help
 mp1-energies --help
 mp1-vasp --help
+mp1-artemis --help
 ```
 
 For `mp1-vasp`, configure POTCAR location with one of:
@@ -37,6 +38,12 @@ or
 
 ```bash
 mp1-vasp --generate-potcar --workdir /path/to/calc --potcar-dir /path/to/POTCARS
+```
+
+For `mp1-artemis`, run with `--dry-run` first to verify resolved paths and actions:
+
+```bash
+mp1-artemis --root /path/to/workspace --setup-all --dry-run
 ```
 
 ## Updating

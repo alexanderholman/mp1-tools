@@ -20,7 +20,7 @@ def _env_with_src() -> dict[str, str]:
 def test_import_modules() -> None:
     env = _env_with_src()
     result = subprocess.run(
-        [sys.executable, "-c", "import mlp_tools.id, mlp_tools.energies, mlp_tools.vasp"],
+        [sys.executable, "-c", "import mlp_tools.id, mlp_tools.energies, mlp_tools.vasp, mlp_tools.artemis"],
         cwd=ROOT,
         env=env,
         text=True,
@@ -67,3 +67,16 @@ def test_mp1_vasp_help() -> None:
     )
     assert result.returncode == 0, result.stderr
     assert "MP1 VASP Utilities Manager" in result.stdout
+
+
+def test_mp1_artemis_help() -> None:
+    result = subprocess.run(
+        [sys.executable, "-m", "mlp_tools.artemis", "--help"],
+        cwd=ROOT,
+        env=_env_with_src(),
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert "MP1 Artemis Utilities Manager" in result.stdout

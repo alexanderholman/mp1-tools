@@ -5,6 +5,7 @@
 - `mp1-id`: layer ID plotting and JSON export utility for structure files.
 - `mp1-energies`: bulk, formation, surface, and interface energy utilities for VASP runs.
 - `mp1-vasp`: setup helper for generating `POTCAR`, `nbands.txt`, `nelect.txt`, `INCAR`, and `KPOINTS`.
+- `mp1-artemis`: workflow orchestration for setup/run/cleanup/submit over `DINTERFACES`.
 
 ## Quick start
 
@@ -20,10 +21,19 @@ Show command help:
 mp1-id --help
 mp1-energies --help
 mp1-vasp --help
+mp1-artemis --help
 ```
 
 `mp1-vasp` requires a configured POTCAR directory via `--potcar-dir` or `VASP_POTCAR_DIR`.
+`mp1-artemis` supports `--dry-run` for non-mutating setup/cleanup/submit previews.
 
 Current status is tracked in `WIP.md` and `tasks/wip.md`.
 
 See [INSTALL.md](INSTALL.md) for details.
+
+## AgentFactory
+
+- `AGENTS.md` workflow guidance
+- `agents.yaml` agent registry
+- `tasks/wip.md` active tracking
+- `tasks/triage.md` blockers and deferred decisions

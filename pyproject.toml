@@ -19,6 +19,7 @@ dependencies = [
 mp1-id = "mlp_tools.id:main"
 mp1-energies = "mlp_tools.energies:main"
 mp1-vasp = "mlp_tools.vasp:main"
+mp1-artemis = "mlp_tools.artemis:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
